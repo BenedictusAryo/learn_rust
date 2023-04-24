@@ -1,6 +1,13 @@
 fn main() {
-    let tup = (500,6.4,1);
-    let first = tup.1;
-    println!("{first}")
+    let y = {
+        let x = 3;
+        x + 1
+    };
 
+    let y = plus_one(y);
+    println!("The value of y is: {y}");
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
 }
