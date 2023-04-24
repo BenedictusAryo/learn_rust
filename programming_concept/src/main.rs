@@ -1,10 +1,6 @@
 fn main() {
-    let mut counter = 0;
-    let result = loop {
-        counter += 1;
-        if counter == 10 {
-            break counter * 2
-        }
-    };
-    println!("the result: {}", result);
+    for number in (1..5).rev() {
+        println!("number: {number}")
+    }
+    println!("done!");
 }   
