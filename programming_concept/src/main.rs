@@ -1,13 +1,10 @@
 fn main() {
-    let y = {
-        let x = 3;
-        x + 1
+    let mut counter = 0;
+    let result = loop {
+        counter += 1;
+        if counter == 10 {
+            break counter * 2
+        }
     };
-
-    let y = plus_one(y);
-    println!("The value of y is: {y}");
-}
-
-fn plus_one(x: i32) -> i32 {
-    x + 1
-}
+    println!("the result: {}", result);
+}   
