@@ -32,15 +32,16 @@ fn main() {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
             Ordering::Equal => {
-                finishing_touches();
+                exit_program();
                 break;
             }
         }
     }
 }
 
-fn finishing_touches() {
+fn exit_program() {
     println!("You win!");
+
     // Wait for user input to exit
     println!("\nPress Enter to exit...");
     let mut input = String::new();
