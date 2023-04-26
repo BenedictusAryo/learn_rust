@@ -32,9 +32,19 @@ fn main() {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
             Ordering::Equal => {
-                println!("You win!");
+                finishing_touches();
                 break;
             }
         }
     }
+}
+
+fn finishing_touches() {
+    println!("You win!");
+    // Wait for user input to exit
+    println!("\nPress Enter to exit...");
+    let mut input = String::new();
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read input");
 }

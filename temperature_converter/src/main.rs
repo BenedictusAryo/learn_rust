@@ -10,7 +10,7 @@ Choose option:
 
 enum OptionChoice {
     One,
-    Two
+    Two,
 }
 
 fn main() {
@@ -28,18 +28,18 @@ fn main() {
             Ok(1) => {
                 println!("You choose Option 1\n");
                 break OptionChoice::One;
-            },
+            }
             Ok(2) => {
                 println!("You choose Option 2\n");
                 break OptionChoice::Two;
-            },
+            }
             Ok(_) => println!("Please insert number of given option!\n"),
             Err(_) => {
                 println!("Please insert a valid number!\n");
             }
         };
     };
-    
+
     // Input degree
     let input_degree = loop {
         println!("Input degree:");
@@ -47,7 +47,7 @@ fn main() {
         io::stdin()
             .read_line(&mut input)
             .expect("Failed to read input");
-        
+
         match input.trim().parse::<f64>() {
             Ok(num) => break num,
             Err(_) => {
@@ -66,16 +66,26 @@ fn main() {
 
     // Print the result
     match option {
-        OptionChoice::One => println!("\nResult:\n{input_degree} degree Celcius equals to {result:.3} degree Fahrenheit"),
-        OptionChoice::Two => println!("\nResult:\n{input_degree} degree Fahrenheit equals to {result:.3} degree Celcius"),
+        OptionChoice::One => println!(
+            "\nResult:\n{input_degree} degree Celcius equals to {result:.3} degree Fahrenheit"
+        ),
+        OptionChoice::Two => println!(
+            "\nResult:\n{input_degree} degree Fahrenheit equals to {result:.3} degree Celcius"
+        ),
     }
 
+    // Wait for user input to exit
+    println!("\nPress Enter to exit...");
+    let mut input = String::new();
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read input");
 }
 
 fn celcius_to_fahrenheit(celcius: f64) -> f64 {
-    celcius * (9.0/5.0) + 32.0
+    celcius * (9.0 / 5.0) + 32.0
 }
 
 fn fahrenheit_to_celcius(fahrenheit: f64) -> f64 {
-    (fahrenheit - 32.0) * (5.0/9.0)
+    (fahrenheit - 32.0) * (5.0 / 9.0)
 }
