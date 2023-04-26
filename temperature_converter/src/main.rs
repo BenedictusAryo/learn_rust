@@ -66,8 +66,8 @@ fn main() {
 
     // Print the result
     match option {
-        OptionChoice::One => println!("\nResult:\n{input_degree} degree Celcius equals to {result}, degree Fahrenheit"),
-        OptionChoice::Two => println!("\nResult:\n{input_degree} degree Fahrenheit equals to {result}, degree Celcius"),
+        OptionChoice::One => println!("\nResult:\n{input_degree} degree Celcius equals to {result:.3} degree Fahrenheit"),
+        OptionChoice::Two => println!("\nResult:\n{input_degree} degree Fahrenheit equals to {result:.3} degree Celcius"),
     }
 
 }
