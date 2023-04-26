@@ -18,6 +18,10 @@ fn main() {
             .expect("Failed to read input");
 
         match input_number.trim().parse::<u32>() {
+            Ok(0) => {
+                println!("Please insert number greater than 0!\n");
+                continue;
+            },
             Ok(num) => break num,
             Err(_) => {
                 println!("Please insert number input!\n");
@@ -27,3 +31,9 @@ fn main() {
     };
     println!("Requested number of sequence: {input_number}")
 }
+
+// fn generate_fibonacci_sequence(number: u32) -> Vec<u32> {
+//     let mut sequence: Vec<u32> = Vec::new();
+
+    
+// }

@@ -2,5 +2,6 @@
 members = [
     "guessing_game",
     "programming_concept",
-    "temperature_converter"
+    "temperature_converter",
+    "fibonacci_number"
 ]
