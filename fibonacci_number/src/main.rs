@@ -37,7 +37,7 @@ fn main() {
 
 }
 
-fn generate_fibonacci_sequence(number: u64) -> Vec<u64> {
+fn generate_fibonacci_sequence(number: u64) -> Result<Vec<u64>,String> {
     let mut sequence: Vec<u64> = Vec::new();
 
     let mut num1 = 0;
@@ -46,9 +46,13 @@ fn generate_fibonacci_sequence(number: u64) -> Vec<u64> {
 
     for _ in 0..number {
         sequence.push(num1);
-        num3 = num1 + num2;
+        num3 = match num1.checked_add(num2){
+            Some(n) => n,
+            None => return Err("Integer overflow occured while generating fibonacci sequence".to_string())
+        };
         num1 = num2;
         num2 = num3;
     }
-    sequence
+
+    return Ok(sequence);
 }
