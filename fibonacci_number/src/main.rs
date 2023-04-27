@@ -33,7 +33,11 @@ fn main() {
     // Run Fibonacci Generator
     println!("\nRequested number of sequence: {input_number}");
     let fibonacci_sequence = generate_fibonacci_sequence(input_number);
-    println!("Generated Fibonacci Sequence: {fibonacci_sequence:?}");
+    match fibonacci_sequence {
+        Ok(seq) => println!("Generated Fibonacci Sequence: {seq:?}"),
+        Err(e) => println!("{e}")
+    }
+    
 
 }
 
@@ -48,7 +52,7 @@ fn generate_fibonacci_sequence(number: u64) -> Result<Vec<u64>,String> {
         sequence.push(num1);
         num3 = match num1.checked_add(num2){
             Some(n) => n,
-            None => return Err("Integer overflow occured while generating fibonacci sequence".to_string())
+            None => return Err("Error Integer overflow occured while generating fibonacci sequence".to_string())
         };
         num1 = num2;
         num2 = num3;
