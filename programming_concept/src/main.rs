@@ -1,4 +1,11 @@
 fn main() {
+    // variable
+    let mut x = 5;
+    let y = &mut x;
+    *y += 2;
+    let z = &x; // create a new immutable reference to x
+    println!("x = {}, y = {}", x, z);
+
     // // For loop
     // for number in (1..5).rev() {
     //     println!("number: {number}")
@@ -33,28 +40,28 @@ fn main() {
     // println!("After: {:?}", person_1);
 
     // Enum
-    #[derive(Debug)]
-    enum MyErrors {
-        BrainTooTired,
-        TimeOfDay(String),
-        CoffeeCupEmpty
-    }
-    fn work(state: &str) -> Result<(), MyErrors> {
-        // Result is also an enum
-        if state == "missing semi-colon" {
-            Err(MyErrors::BrainTooTired)
-        } else if state == "06:00" {
-            Err(MyErrors::TimeOfDay("It's too early to work".to_string()))
-        } else if state == "22:00" {
-            Err(MyErrors::TimeOfDay("It's too late to work".to_string()))
-        } else if state == "empty" {
-            Err(MyErrors::CoffeeCupEmpty)
-        } else {
-            Ok(())
-        }
-    }
+    // #[derive(Debug)]
+    // enum MyErrors {
+    //     BrainTooTired,
+    //     TimeOfDay(String),
+    //     CoffeeCupEmpty
+    // }
+    // fn work(state: &str) -> Result<(), MyErrors> {
+    //     // Result is also an enum
+    //     if state == "missing semi-colon" {
+    //         Err(MyErrors::BrainTooTired)
+    //     } else if state == "06:00" {
+    //         Err(MyErrors::TimeOfDay("It's too early to work".to_string()))
+    //     } else if state == "22:00" {
+    //         Err(MyErrors::TimeOfDay("It's too late to work".to_string()))
+    //     } else if state == "empty" {
+    //         Err(MyErrors::CoffeeCupEmpty)
+    //     } else {
+    //         Ok(())
+    //     }
+    // }
 
-    let result = work("22:00");
-    println!("{:?}", result)
+    // let result = work("22:00");
+    // println!("{:?}", result)
 
     }

@@ -5,3 +5,6 @@ members = [
     "temperature_converter",
     "fibonacci_number"
 ]
+
+# Specify the resolver version
+resolver = "1"
